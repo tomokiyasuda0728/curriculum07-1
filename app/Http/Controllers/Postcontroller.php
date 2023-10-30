@@ -8,8 +8,13 @@ use App\Models\Post;
 
 class Postcontroller extends Controller
 {
-        public function index(Post $post)//インポートしたPostをインスタンス化して$postとして使用。
+       public function index(Post $post)//インポートしたPostをインスタンス化して$postとして使用。
     {
         return view('posts.index') ->with(['posts' => $post->getPaginateByLimit(1)]);//$postの中身を戻り値にする。
+    }
+    
+        public function show(Post $post)//インポートしたPostをインスタンス化して$postとして使用。
+    {
+       return view('posts.show') ->with(['post' => $post]);//$postの中身を戻り値にする。
     }
 }
